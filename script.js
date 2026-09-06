@@ -1,48 +1,28 @@
-let rock = 'rock'
-let paper = 'paper'
-let scissors = 'scissors'
-let computerChoice;
-let humanChoice;
-
 function getComputerChoice() {
-    computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice === 0) {
-        computerChoice = rock;
-    } else if (computerChoice === 1) {
-        computerChoice = paper;
+    let cChance = Math.floor(Math.random() * 3);
+    if (cChance == 0) {
+        return 'rock';
+    } else if (cChance == 1) {
+        return 'paper';
     } else {
-        computerChoice = scissors;
+        return 'scissors';
     };
-    return computerChoice;
 };
 
-function getHumanChoice() {
-    humanChoice = prompt("Rock, Paper, Scissors! What do you choose?");
-    console.log(humanChoice);
-    if (humanChoice = 'rock') {
-        humanChoice = rock;
-    } else if (humanChoice = 'paper') {
-        humanChoice = paper;
-    } else if (humanChoice = 'scissors') {
-        humanChoice = scissors;
+let cChoice = getComputerChoice();
+
+function getHumanChoice(hChance) {
+    hChance = prompt("What's your number?").toUpperCase();
+    if (hChance == "rock") {
+        console.log("Rock");
+        return "Rock";
+    } else if (hChance == "paper") {
+        console.log("Paper");
+        return "Paper";
+    } else if (hChance == "scissors") {
+        console.log("Scissors");
+        return "Scissors";
     }
-    return humanChoice;
-};
-
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound(hChoice, cChoice) {
-    let result = rock >= paper && rock <= scissors && rock == rock && paper >= scissors && paper <= rock && paper == paper && scissors >= paper && scissors <= rock && scissors == scissors;
-    if (humanChoice >= computerChoice) {
-        console.log("You Win! Fuck you!")
-        humanScore++;
-    } else {
-        console.log("I win! Suck my robotic dick!")
-        computerScore++;
-    };
 }
 
-getComputerChoice();
-getHumanChoice();
-playRound(humanChoice, computerChoice);
+let hChoice = getHumanChoice();
