@@ -1,23 +1,23 @@
-function getHumanChoice(hChance) {
-    hChance = prompt("What's your number?").toUpperCase();
-    if (hChance == "ROCK") {
+let humChoice = function getHumanChoice(humChance) {
+    humChance = prompt("Rock, Paper, Scissors, go! What's your choice?").toUpperCase();
+    if (humChance == "ROCK") {
         console.log("Rock");
         return "Rock";
-    } else if (hChance == "PAPER") {
+    } else if (humChance == "PAPER") {
         console.log("Paper");
         return "Paper";
-    } else if (hChance == "SCISSORS") {
+    } else if (humChance == "SCISSORS") {
         console.log("Scissors");
         return "Scissors";
     }
 }
 
-function getComputerChoice() {
-    let cChance = Math.floor(Math.random() * 3);
-    if (cChance == 0) {
+let comChoice = function getComputerChoice(comChance) {
+    comChance = Math.floor(Math.random() * 3);
+    if (comChance == 0) {
         console.log("Rock");
         return 'Rock';
-    } else if (cChance == 1) {
+    } else if (comChance == 1) {
         console.log("Paper");
         return 'Paper';
     } else {
@@ -26,48 +26,44 @@ function getComputerChoice() {
     };
 };
 
-let hChoice = getHumanChoice();
-let cChoice = getComputerChoice();
+let humanScore = 0;
+let computerScore = 0;
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    function playRound(humanChoice, computerChoice) {
+    function playGame() {
+        function playRound(humanChoice, computerChoice) {
+            humanChoice = humChoice();
+            computerChoice = comChoice();
         if (humanChoice == "Rock" && computerChoice == "Scissors" || humanChoice == "Paper" && computerChoice == "Rock" || humanChoice == "Scissors" && computerChoice == "Paper") {
-            alert("You win! Fuck you!");
+            alert("You win!!");
             humanScore++;
             console.log(humanScore + " " + computerScore);
         } else if (humanChoice == "Rock" && computerChoice == "Rock" || humanChoice == "Paper" && computerChoice == "Paper" || humanChoice == "Scissors" && computerChoice == "Scissors") {
             alert("It's a draw... damn.");
             console.log(humanScore + " " + computerScore);
         } else if (humanChoice == "Rock" && computerChoice == "Paper" || humanChoice == "Paper" && computerChoice == "Scissors" || humanChoice == "Scissors" && computerChoice == "Rock") {
-            alert("I win! Suck my robotic cock!");
+            alert("I win!");
             computerScore++;
             console.log(humanScore + " " + computerScore);
         } else {
-            alert("Put an actually valid value, dumbass.");
+            alert("Insert valid data.");
         }
-        delete humanChoice;
-        delete computerChoice;
     }
 
-    playRound(hChoice, cChoice);
-    playRound(hChoice, cChoice);
-    playRound(hChoice, cChoice);
-    playRound(hChoice, cChoice);
-    playRound(hChoice, cChoice);
-    /* for (let i = 0; i < 5; i++) {
-        playRound(hChoice, cChoice);
-        if (i > 5) {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        if (i >= 5) {
             if (humanScore > computerScore) {
                 alert("No way, you won. :(");
                 break;
             } else if (computerScore > humanScore) {
                 alert("Get rekt, I won :)");
                 break;
+            } else {
+                alert("A Draw? How was that possible?");
+                break;
             }
         }
-    }*/
+    }
 }
 
 playGame();
