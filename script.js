@@ -36,30 +36,33 @@ let computerScore = 0;
         if (humanChoice == "Rock" && computerChoice == "Scissors" || humanChoice == "Paper" && computerChoice == "Rock" || humanChoice == "Scissors" && computerChoice == "Paper") {
             alert("You win!!");
             humanScore++;
-            console.log(humanScore + " " + computerScore);
+            alert("Player: " + humanScore + " " + "Computer: " + computerScore);
         } else if (humanChoice == "Rock" && computerChoice == "Rock" || humanChoice == "Paper" && computerChoice == "Paper" || humanChoice == "Scissors" && computerChoice == "Scissors") {
             alert("It's a draw... damn.");
-            console.log(humanScore + " " + computerScore);
+            alert("Player: " + humanScore + " " + "Computer: " + computerScore);
         } else if (humanChoice == "Rock" && computerChoice == "Paper" || humanChoice == "Paper" && computerChoice == "Scissors" || humanChoice == "Scissors" && computerChoice == "Rock") {
             alert("I win!");
             computerScore++;
-            console.log(humanScore + " " + computerScore);
+            alert("Player: " + humanScore + " " + "Computer: " + computerScore);
         } else {
             alert("Insert valid data.");
         }
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         playRound();
         if (i >= 5) {
             if (humanScore > computerScore) {
-                alert("No way, you won. :(");
+                alert("No way, you won the game. :(");
+                alert("FINAL SCORE: Player: " + humanScore + " " + "Computer: " + computerScore);
                 break;
             } else if (computerScore > humanScore) {
-                alert("Get rekt, I won :)");
+                alert("Get owned, I won :)");
+                alert("FINAL SCORE: Player: " + humanScore + " " + "Computer: " + computerScore);
                 break;
             } else {
                 alert("A Draw? How was that possible?");
+                alert("FINAL SCORE: Player: " + humanScore + " " + "Computer: " + computerScore);
                 break;
             }
         }
